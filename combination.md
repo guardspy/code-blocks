@@ -1,0 +1,35 @@
+# code-blocks
+You may find some codes or functions in this repository...BUT please remember that thinking on your own is better. 
+
+#include <stdio.h>
+#include <stdlib.h>
+#define MOD 1000000007;
+
+int comb(int n, int r)
+{
+	int** pas = (int**)malloc(sizeof(int*)*(n + 1));
+	for (int i = 0; i <= n; i++)
+		pas[i] = (int*)malloc(sizeof(int)*(n + 1));
+
+	for (int i = 0; i <= n; i++)
+	{
+		for (int j = 0; j <= i; j++)
+		{
+			if ((j == 0) || (j == i)) pas[i][j] = 1;
+			else pas[i][j] = (pas[i - 1][j - 1] + pas[i - 1][j]) % MOD;
+		}
+	}
+
+	return pas[n][r];
+}
+
+int main(void)
+{
+	int a, b, l;
+	scanf("%d %d", &a, &b);
+	l = a + b;
+
+	printf("%d", comb(l, a));
+
+	return 0;
+}
