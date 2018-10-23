@@ -25,6 +25,7 @@ int comb(int n, int r)
 
 int main(void)
 {
+
 	int a, b, l;
 	scanf("%d %d", &a, &b);
 	l = a + b;
