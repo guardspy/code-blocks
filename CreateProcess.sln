@@ -1,0 +1,16 @@
+#define CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <windows.h>
+#include <tchar.h>
+
+int _tmain(int argc, TCHAR* argv[])
+{
+	STARTUPINFO si = { 0, };
+	_PROCESS_INFORMATION pi;
+	TCHAR command[] = "calc.exe";
+	si.cb = sizeof(si);
+
+	CreateProcess(NULL, command, NULL, NULL, TRUE, NULL, NULL, NULL, &si, &pi);
+
+	return 0;
+}
