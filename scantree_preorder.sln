@@ -1,0 +1,9 @@
+int nodes[100] = { 0, };
+
+void pre_scan(int index)
+{
+	scanf("%d", &nodes[index - 1]);
+	if (nodes[index - 1] == -1) return;
+	pre_scan(LChild(index));
+	pre_scan(RChild(index));
+}
