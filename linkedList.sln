@@ -1,0 +1,23 @@
+struct Node
+{
+	int data;
+	Node* next;
+};
+Node* createNode(void)
+{
+	Node* n = new Node;
+	n->data = 0;
+	n->next = NULL;
+	return n;
+}
+void insertNode(Node* prev, Node* node)
+{
+	node->next = prev->next;
+	prev->next = node;
+}
+void deleteNode(Node* prev)
+{
+	Node* n = prev->next;
+	prev->next = prev->next->next;
+	delete n;
+}
